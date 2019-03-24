@@ -46,7 +46,11 @@ import {HttpClientModule} from '@angular/common/http';
     MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,
     MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule,
     MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule,
-    MatTabsModule, MatToolbarModule, MatTooltipModule, AppRoutingModule
+    MatTabsModule, MatToolbarModule, MatTooltipModule, AppRoutingModule, HttpClientModule,
+    FormsModule, ReactiveFormsModule
+  ],
+  entryComponents: [
+    ProjectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
