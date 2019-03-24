@@ -3,6 +3,8 @@ import {FormControl, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Worker} from '../shared/Worker';
 import {WorkerService} from '../services/worker.service';
+import {Rol} from '../shared/Rol';
+import {RolService} from '../services/rol.service';
 
 @Component({
   selector: 'app-worker',
@@ -11,15 +13,19 @@ import {WorkerService} from '../services/worker.service';
 })
 export class WorkerComponent implements OnInit {
 
+  roles: Rol[];
+
   formControl = new FormControl('', [
     Validators.required
   ]);
 
   constructor(public dialogRef: MatDialogRef<WorkerComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Worker,
-              public workerService: WorkerService) { }
+              public workerService: WorkerService,
+              public rolService: RolService) { }
 
   ngOnInit() {
+    this.rolService.getRoles().subscribe(roles => this.roles = roles);
   }
 
   getErrorMessage() {

@@ -19,15 +19,25 @@
 
     <div class="form">
       <mat-form-field color="accent">
-        <input matInput #input class="form-control" placeholder="Hiring Date" [(ngModel)]="data.hiringDate" name="hiringDate" required >
+        <!--<input matInput #input class="form-control" placeholder="Hiring Date" [(ngModel)]="data.hiringDate" name="hiringDate" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>-->
+        <input matInput [matDatepicker]="myDatepicker" #input class="form-control" placeholder="Hiring Date" [(ngModel)]="data.hiringDate" name="hiringDate" required >
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field color="accent">
-        <input matInput #input class="form-control" placeholder="Id Rol" [(ngModel)]="data.idRol" name="idRol" required >
-        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        <!--<input matInput #input class="form-control" placeholder="Id Rol" [(ngModel)]="data.idRol" name="idRol" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>-->
+        <mat-label>Rol</mat-label>
+        <mat-select [(ngModel)]="data.idRol" name="food">
+          <mat-option *ngFor="let rol of roles" [value]="rol.id">
+            {{rol.name}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
