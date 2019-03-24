@@ -50,7 +50,10 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule, ReactiveFormsModule
   ],
   entryComponents: [
-    ProjectComponent
+    ProjectComponent,
+    RolComponent,
+    WorkerComponent,
+    ActivityComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

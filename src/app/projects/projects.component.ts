@@ -13,13 +13,11 @@ import {ProjectComponent} from '../project/project.component';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects: Project[];
-  dataSource: ExampleDataSource | null;
+  dataSource: ProjectDataSource | null;
   displayedColumns = ['id', 'name', 'description', 'actions'];
 
   constructor(public projectService: ProjectService,
-              public dialog: MatDialog,
-              private changeDetectorRefs: ChangeDetectorRef) {
+              public dialog: MatDialog) {
     this.loadData();
   }
 
@@ -57,13 +55,13 @@ export class ProjectsComponent implements OnInit {
   }
 
   loadData() {
-    this.dataSource = new ExampleDataSource(this.projectService);
+    this.dataSource = new ProjectDataSource(this.projectService);
 
   }
 
 }
 
-export class ExampleDataSource extends DataSource<Project> {
+export class ProjectDataSource extends DataSource<Project> {
 
   projectService: ProjectService
 

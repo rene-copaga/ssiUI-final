@@ -1,3 +1,12 @@
+<mat-toolbar color="primary">
+  <span>PROJECTS</span>
+  <span class="spacer"></span>
+  Reload data:
+  <button mat-icon-button (click)="loadData()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+
 <div class="container mat-elevation-z8">
 
   <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
