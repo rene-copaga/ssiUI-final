@@ -5,6 +5,8 @@ import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
 import {WorkerService} from '../services/worker.service';
 import {WorkerComponent} from '../worker/worker.component';
+import {RolService} from '../services/rol.service';
+import {Rol} from '../shared/Rol';
 
 @Component({
   selector: 'app-workers',
@@ -15,13 +17,16 @@ export class WorkersComponent implements OnInit {
 
   dataSource: WorkerDataSource | null;
   displayedColumns = ['id', 'firstName', 'lastName', 'hiringDate', 'idRol', 'actions'];
+  roles: {[id: number]: string; } = {};
 
   constructor(public workerService: WorkerService,
+              public rolService: RolService,
               public dialog: MatDialog) {
     this.loadData();
   }
 
   ngOnInit() {
+    this.rolService.getRoles().subscribe(roles => roles.map(rol => this.roles[rol.id] = rol.name ));
   }
 
   addNew(worker: Worker) {
@@ -58,7 +63,6 @@ export class WorkersComponent implements OnInit {
     this.dataSource = new WorkerDataSource(this.workerService);
 
   }
-
 }
 
 export class WorkerDataSource extends DataSource<Worker> {
