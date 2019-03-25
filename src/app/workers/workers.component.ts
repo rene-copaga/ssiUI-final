@@ -43,7 +43,7 @@ export class WorkersComponent implements OnInit {
 
   edit(id: Number, firstName: String, lastName: String, hiringDate: Date, idRol: number) {
     const dialogRef = this.dialog.open(WorkerComponent, {
-      data: {id: id, firstName: firstName, lastName: lastName, hiringDate: hiringDate, idRol: idRol}
+      data: {id: id, firstName: firstName, lastName: lastName, hiringDate: new Date(hiringDate), idRol: idRol}
     });
 
     dialogRef.afterClosed().subscribe(result => {
