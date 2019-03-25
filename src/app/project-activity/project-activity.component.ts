@@ -5,7 +5,7 @@ import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
 import {DetailActivityService} from '../services/detail-activity.service';
 import {ActivityService} from '../services/activity.service';
-import {filter, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {DetailActivity} from '../shared/DetailActivity';
 import {ActivatedRoute} from '@angular/router';
 import {Project} from '../shared/Project';

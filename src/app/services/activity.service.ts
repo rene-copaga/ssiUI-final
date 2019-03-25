@@ -10,6 +10,10 @@ export class ActivityService {
 
   constructor(private http: HttpClient) { }
 
+  getActivity(id: number): Observable<Activity> {
+    return <Observable<Activity>> this.http.get('http://localhost:8080/activities/' + id);
+  }
+
   getActivities(): Observable<Activity[]> {
     return <Observable<Activity[]>> this.http.get('http://localhost:8080/activities/sp');
   }

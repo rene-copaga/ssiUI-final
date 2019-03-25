@@ -10,6 +10,10 @@ export class DetailActivityService {
 
   constructor(private http: HttpClient) { }
 
+  getDetailActivity(id: number): Observable<DetailActivity> {
+    return <Observable<DetailActivity>> this.http.get('http://localhost:8080/detailActivities/' + id);
+  }
+
   getDetailActivities(): Observable<DetailActivity[]> {
     return <Observable<DetailActivity[]>> this.http.get('http://localhost:8080/detailActivities/sp');
   }

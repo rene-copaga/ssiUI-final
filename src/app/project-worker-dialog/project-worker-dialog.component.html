@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 mat-dialog-title>Add Worker</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+
+    <mat-label mat-line>Project:</mat-label>
+    <mat-label mat-line>{{data.projectName}}</mat-label>
+    <mat-divider ></mat-divider>
+
+    <mat-label mat-line>Activity:</mat-label>
+    <mat-label mat-line>{{data.activityName}}</mat-label>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <!--<input matInput #input class="form-control" placeholder="Id Rol" [(ngModel)]="data.idRol" name="idRol" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>-->
+        <mat-label>Worker</mat-label>
+        <mat-select [(ngModel)]="data.idWorker" name="idWorker">
+          <mat-option *ngFor="let worker of workers" [value]="worker.id">
+            {{worker.firstName + ' ' + worker.lastName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAddUpdate()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>
