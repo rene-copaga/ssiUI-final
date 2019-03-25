@@ -1,0 +1,28 @@
+<div class="container">
+  <h3 mat-dialog-title>{{this.data.id?'Edit ':'Add new '}} Activity</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+
+    <mat-label mat-line>Project:</mat-label>
+    <mat-label mat-line>{{data.projectName}}</mat-label>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <!--<input matInput #input class="form-control" placeholder="Id Rol" [(ngModel)]="data.idRol" name="idRol" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>-->
+        <mat-label>Activity</mat-label>
+        <mat-select [(ngModel)]="data.idActivity" name="activity">
+          <mat-option *ngFor="let activity of activities" [value]="activity.id">
+            {{activity.activityName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAddUpdate()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

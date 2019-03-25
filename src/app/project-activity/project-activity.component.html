@@ -1,9 +1,14 @@
 <mat-toolbar color="primary">
-  <span>ACTIVITIES</span>
+  <span>PROJECT ACTIVITIES</span>
   <span class="spacer"></span>
   <button mat-icon-button (click)="loadData()">
     <mat-icon>refresh</mat-icon>
   </button>
+</mat-toolbar>
+
+<mat-toolbar color="accent">
+  <span>Project: {{project.name}}</span>
+  <span class="spacer"></span>
 </mat-toolbar>
 
 <div class="container mat-elevation-z8">
@@ -19,21 +24,30 @@
       <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="activityName">
+    <ng-container matColumnDef="idActivity">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Activity Name</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.activityName}}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{activities[row.idActivity]}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="workers">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Workers</mat-header-cell>
+      <mat-cell *matCellDef="let row; let i=index;">
+        <a mat-flat-button color="accent" [routerLink]="['/projectActivities', row.id]">
+          Assign Workers
+        </a>
+      </mat-cell>
     </ng-container>
 
     <!-- actions -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="addNew()">
+        <button mat-icon-button color="primary" (click)="addNew(projectId, project.name)">
           <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
         </button>
       </mat-header-cell>
 
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="accent" (click)="edit(row.id, row.activityName)">
+        <button mat-icon-button color="accent" (click)="edit(row.id, row.idActivity, row.activityName, projectId, project.name)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
 

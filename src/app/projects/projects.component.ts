@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Project} from '../shared/Project';
 import {ProjectService} from '../services/project.service';
 import {DataSource} from '@angular/cdk/collections';
@@ -14,7 +14,7 @@ import {ProjectComponent} from '../project/project.component';
 export class ProjectsComponent implements OnInit {
 
   dataSource: ProjectDataSource | null;
-  displayedColumns = ['id', 'name', 'description', 'actions'];
+  displayedColumns = ['id', 'name', 'description', 'activities', 'actions'];
 
   constructor(public projectService: ProjectService,
               public dialog: MatDialog) {
@@ -63,7 +63,7 @@ export class ProjectsComponent implements OnInit {
 
 export class ProjectDataSource extends DataSource<Project> {
 
-  projectService: ProjectService
+  projectService: ProjectService;
 
   constructor(projectService: ProjectService) {
     super();

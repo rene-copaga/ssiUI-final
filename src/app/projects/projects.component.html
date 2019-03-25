@@ -29,6 +29,15 @@
       <mat-cell *matCellDef="let row"> {{row.description}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="activities">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Activities</mat-header-cell>
+      <mat-cell *matCellDef="let row; let i=index;">
+        <a mat-flat-button color="accent" [routerLink]="['/projectActivities', row.id]">
+          View Activities
+        </a>
+      </mat-cell>
+    </ng-container>
+
     <!-- actions -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>

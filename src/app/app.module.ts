@@ -25,6 +25,10 @@ import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { ProjectActivityComponent } from './project-activity/project-activity.component';
+import { ProjectActivityDialogComponent } from './project-activity-dialog/project-activity-dialog.component';
+import { ProjectWorkerComponent } from './project-worker/project-worker.component';
+import { ProjectWorkerDialogComponent } from './project-worker-dialog/project-worker-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import {HttpClientModule} from '@angular/common/http';
     ActivityComponent,
     RolComponent,
     RolesComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectActivityComponent,
+    ProjectActivityDialogComponent,
+    ProjectWorkerComponent,
+    ProjectWorkerDialogComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
@@ -53,7 +61,9 @@ import {HttpClientModule} from '@angular/common/http';
     ProjectComponent,
     RolComponent,
     WorkerComponent,
-    ActivityComponent
+    ActivityComponent,
+    ProjectActivityDialogComponent,
+    ProjectWorkerDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
