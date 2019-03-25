@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import 'rxjs-compat/add/observable/of';
 import 'rxjs-compat/add/operator/delay';
 import {HttpClient} from '@angular/common/http';
+import {baseURL} from '../shared/baseurl';
 
 @Injectable({
   providedIn: 'root'
@@ -13,22 +14,22 @@ export class ProjectService {
   constructor(private http: HttpClient) { }
 
   getProject(id: number): Observable<Project> {
-    return <Observable<Project>> this.http.get('http://localhost:8080/projects/' + id);
+    return <Observable<Project>> this.http.get(baseURL + 'projects/' + id);
   }
 
   getProjects(): Observable<Project[]> {
-    return <Observable<Project[]>> this.http.get('http://localhost:8080/projects/sp');
+    return <Observable<Project[]>> this.http.get(baseURL + 'projects');
   }
 
   createProject(project: Project): Observable<any> {
-    return <Observable<any>> this.http.post('http://localhost:8080/projects/sp', project);
+    return <Observable<any>> this.http.post(baseURL + 'projects', project);
   }
 
   updateProject(project: Project): Observable<any> {
-    return <Observable<any>> this.http.put('http://localhost:8080/projects/sp', project);
+    return <Observable<any>> this.http.put(baseURL + 'projects', project);
   }
 
   deleteProject(id: Number): Observable<any> {
-    return <Observable<any>> this.http.delete('http://localhost:8080/projects/sp/' + id);
+    return <Observable<any>> this.http.delete(baseURL + 'projects/' + id);
   }
 }

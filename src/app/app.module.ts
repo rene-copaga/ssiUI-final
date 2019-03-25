@@ -29,6 +29,7 @@ import { ProjectActivityComponent } from './project-activity/project-activity.co
 import { ProjectActivityDialogComponent } from './project-activity-dialog/project-activity-dialog.component';
 import { ProjectWorkerComponent } from './project-worker/project-worker.component';
 import { ProjectWorkerDialogComponent } from './project-worker-dialog/project-worker-dialog.component';
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,9 @@ import { ProjectWorkerDialogComponent } from './project-worker-dialog/project-wo
     ProjectActivityDialogComponent,
     ProjectWorkerDialogComponent
   ],
-  providers: [],
+  providers: [
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
